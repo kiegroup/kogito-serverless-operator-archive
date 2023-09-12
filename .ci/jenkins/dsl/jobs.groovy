@@ -16,7 +16,6 @@ import org.kie.jenkins.jobdsl.Utils
 jenkins_path = '.ci/jenkins'
 clustersConfig = [
     minikube: [
-        AGENT_LABEL: 'kie-rhel8 && kie-mem16g',
         MINIKUBE_VERSION: '1.30.1',
         KUBERNETES_VERSION: '1.26.3',
     ],
