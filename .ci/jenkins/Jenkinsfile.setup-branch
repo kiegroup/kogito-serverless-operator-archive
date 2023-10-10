@@ -5,10 +5,11 @@ testsFailed = false
 
 pipeline {
     agent {
-        docker { 
-            image env.AGENT_DOCKER_BUILDER_IMAGE
-            args env.AGENT_DOCKER_BUILDER_ARGS
-        }
+        label 'rhel8 && !built-in'
+    }
+
+    tools {
+        go 'golang-1.19'
     }
 
     options {

@@ -7,15 +7,22 @@ openshiftClusterPlatform = 'openshift'
 
 pipeline {
     agent {
-        docker { 
-            image env.AGENT_DOCKER_BUILDER_IMAGE
-            args env.AGENT_DOCKER_BUILDER_ARGS
-        }
+        label "${env.AGENT_LABEL ?: "rhel8"} && podman && !built-in"
     }
 
     options {
         timeout(time: 3, unit: 'HOURS')
         timestamps()
+    }
+
+    tools {
+        go 'golang-1.19'
+    }
+
+    environment {
+        // Linked to node label
+        CONTAINER_ENGINE='podman'
+        CONTAINER_ENGINE_TLS_OPTIONS='--tls-verify=false'
     }
 
     stages {
