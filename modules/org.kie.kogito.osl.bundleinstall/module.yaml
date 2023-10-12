@@ -1,5 +1,5 @@
 name: org.kie.kogito.osl.bundleinstall
-version: "1.30.0"
+version: "1.31.0"
 description: Copy the bund files to the target image
 
 artifacts:
