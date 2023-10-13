@@ -22,6 +22,8 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
+	kubeutil "github.com/kiegroup/kogito-serverless-operator/utils/kubernetes"
+
 	"github.com/kiegroup/kogito-serverless-operator/controllers/profiles/common"
 
 	operatorapi "github.com/kiegroup/kogito-serverless-operator/api/v1alpha08"
@@ -296,12 +298,11 @@ func Test_newDevProfileWithExternalConfigMaps(t *testing.T) {
 	assert.Equal(t, 2, len(deployment.Spec.Template.Spec.Volumes))
 	sortVolumeMounts(&deployment.Spec.Template.Spec.Containers[0])
 
-	wd := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[0]
-	extCamel := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[1]
+	wd := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[1]
+	extCamel := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[0]
 	assert.Equal(t, configMapResourcesVolumeName, wd.Name)
 	assert.Equal(t, quarkusDevConfigMountPath, wd.MountPath)
 
-	assert.Equal(t, configMapExternalResourcesVolumeNamePrefix+"routes", extCamel.Name)
 	assert.Equal(t, extCamel.MountPath, quarkusDevConfigMountPath+"/routes")
 
 	cmData[camelYamlRouteFileName] = yamlRoute
@@ -323,8 +324,7 @@ func Test_newDevProfileWithExternalConfigMaps(t *testing.T) {
 	assert.Equal(t, 2, len(deployment.Spec.Template.Spec.Volumes))
 	sortVolumeMounts(&deployment.Spec.Template.Spec.Containers[0])
 
-	extCamelRouteOne := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[1]
-	assert.Equal(t, configMapExternalResourcesVolumeNamePrefix+"routes", extCamelRouteOne.Name)
+	extCamelRouteOne := deployment.Spec.Template.Spec.Containers[0].VolumeMounts[0]
 	assert.Equal(t, quarkusDevConfigMountPath+"/routes", extCamelRouteOne.MountPath)
 
 	workflow.Status.Manager().MarkTrue(api.RunningConditionType)
