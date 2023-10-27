@@ -164,6 +164,7 @@ func GetBaseSonataFlowWithProdProfile(namespace string) *operatorapi.SonataFlow 
 	return workflow
 }
 
+// GetBaseSonataFlowWithProdOpsProfile gets a base workflow that has a pre-built image set in podTemplate.
 func GetBaseSonataFlowWithProdOpsProfile(namespace string) *operatorapi.SonataFlow {
 	workflow := getSonataFlow(SonataFlowSimpleOpsYamlCR, namespace)
 	return workflow
