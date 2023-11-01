@@ -18,11 +18,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/apache/incubator-kie-kogito-serverless-operator/api/v1alpha08"
-	"github.com/apache/incubator-kie-kogito-serverless-operator/test"
 	"github.com/stretchr/testify/assert"
 	v1 "k8s.io/api/apps/v1"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
+
+	"github.com/kiegroup/kogito-serverless-operator/api/v1alpha08"
+	"github.com/kiegroup/kogito-serverless-operator/test"
 )
 
 func Test_CheckPodTemplateChangesReflectDeployment(t *testing.T) {
