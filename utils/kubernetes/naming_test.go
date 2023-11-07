@@ -12,22 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package utils
+package kubernetes
 
 import (
-	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func RemoveFileExtension(fileName string) string {
-	if i := strings.LastIndex(fileName, "."); i >= 0 {
-		return fileName[:i]
-	}
-	return fileName
-}
-
-func RemoveKnownExtension(fileName, extension string) string {
-	if i := strings.LastIndex(fileName, extension); i >= 0 {
-		return fileName[:i]
-	}
-	return fileName
+func TestMustSafeDNS1035_EnsureEquality(t *testing.T) {
+	s1 := MustSafeDNS1035("prefix-", "bananas")
+	s2 := MustSafeDNS1035("prefix-", "bananas")
+	assert.Equal(t, s1, s2)
 }
