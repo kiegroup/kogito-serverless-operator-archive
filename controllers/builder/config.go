@@ -32,7 +32,7 @@ import (
 const (
 	envVarPodNamespaceName = "POD_NAMESPACE"
 	// ConfigMapName is the default name for the Builder ConfigMap name
-	ConfigMapName                       = "sonataflow-operator-builder-config"
+	ConfigMapName                       = "logic-operator-rhel8-builder-config"
 	configKeyDefaultExtension           = "DEFAULT_WORKFLOW_EXTENSION"
 	configKeyDefaultBuilderResourceName = "DEFAULT_BUILDER_RESOURCE_NAME"
 )
