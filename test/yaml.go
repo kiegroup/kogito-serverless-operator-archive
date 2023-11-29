@@ -48,11 +48,11 @@ const (
 	sonataFlowPlatformYamlCR                  = "sonataflow.org_v1alpha08_sonataflowplatform.yaml"
 	sonataFlowPlatformWithCacheMinikubeYamlCR = "sonataflow.org_v1alpha08_sonataflowplatform_withCache_minikube.yaml"
 	sonataFlowPlatformForOpenshift            = "sonataflow.org_v1alpha08_sonataflowplatform_openshift.yaml"
-	sonataFlowBuilderConfig                   = "sonataflow-operator-builder-config_v1_configmap.yaml"
+	sonataFlowBuilderConfig                   = "logic-operator-rhel8-builder-config_v1_configmap.yaml"
 	sonataFlowBuildSucceed                    = "sonataflow.org_v1alpha08_sonataflowbuild.yaml"
 
 	e2eSamples    = "test/testdata/"
-	manifestsPath = "bundle/manifests/"
+	manifestsPath = "bundle.osl/manifests/"
 )
 
 var projectDir = ""

@@ -20,11 +20,11 @@ import (
 
 const (
 	// Current version
-	OperatorVersion = "2.0.0-snapshot"
+	OperatorVersion = "1.31"
 
 	// Should not be changed
 	snapshotSuffix = "snapshot"
-	latestVersion  = "2.0.0-snapshot"
+	latestVersion  = "1.31"
 )
 
 func IsSnapshot() bool {

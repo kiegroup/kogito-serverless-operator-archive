@@ -23,8 +23,8 @@ import (
 const (
 	latestImageTag              = "latest"
 	nightlySuffix               = "nightly"
-	defaultWorkflowDevModeImage = "quay.io/kiegroup/kogito-swf-devmode"
-	defaultWorkflowBuilderImage = "quay.io/kiegroup/kogito-swf-builder"
+	defaultWorkflowDevModeImage = "registry.redhat.io/openshift-serverless-1-tech-preview/logic-swf-devmode-rhel8"
+	defaultWorkflowBuilderImage = "registry.redhat.io/openshift-serverless-1-tech-preview/logic-swf-builder-rhel8"
 )
 
 // GetWorkflowAppImageNameTag retrieve the tag for the image based on the Workflow based annotation, <workflowid>:latest otherwise
